@@ -55,6 +55,7 @@ jicmp6.jar
 *.pp.bz2
 *.te
 
+.cache
 .project
 .classpath
 node_modules
