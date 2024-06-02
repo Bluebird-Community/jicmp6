@@ -1,0 +1,60 @@
+---
+name: jicmp6-build
+run-name: Build JICMP6
+on:
+  push:
+
+## Build and create the project on every push to the project
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    container:
+      image: quay.io/bluebird/jicmp-builder:0.0.1.b1
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          submodules: 'true'
+      - name: Add workspace to git safe.directory
+        run: git config --global --add safe.directory "$GITHUB_WORKSPACE"
+      - name: Update generated configuration files
+        run: |
+          autoreconf -fvi
+      - name: Configure and build from source
+        run: |
+          ./configure
+          make
+      - name: Create Debian packages
+        run: |
+          dpkg-buildpackage
+      - name: Collect build artifacts
+        run: |
+          mkdir -p debian/artifacts
+          mv ../jicmp6_* debian/artifacts/
+          mv ../jicmp6-* debian/artifacts/
+      - name: Persist build artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: jicmp6-debian
+          path: debian/artifacts/*
+
+  ## Publish a release triggered by a git tag push
+  release:
+    needs:
+      - build
+    # Only publish release artifacts on pushing a Git tag with a version number starting with v*
+    if: startsWith(github.ref, 'refs/tags/v')
+    runs-on: ubuntu-latest
+    container:
+      image: quay.io/bluebird/jicmp-builder:0.0.1.b1
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          name: jicmp6-debian
+          path: debian/artifacts
+      - name: Publish Debian packages to Cloudsmith
+        shell: bash
+        run: |
+          export CLOUDSMITH_API_KEY=${{ secrets.CLOUDSMITH_API_KEY }}
+          for deb in $(ls debian/artifacts/jicmp6_*.deb); do
+            cloudsmith push deb bluebird/common/any-distro/any-version ${deb};
+          done;

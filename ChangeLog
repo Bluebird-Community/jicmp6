@@ -1,3 +1,11 @@
+3.0.6
+-----
+* Change build infrastructure to GitHub Actions.
+* Create a release workflow based on git version tags
+* Preparing the first release to [Cloudsmith](https://cloudsmith.io/~bluebird/repos/common/packages/)
+* Resolve warning running autoupdate
+* Bumped Debian compatibility from 6 to 7
+
 3.0.5
 -----
 * Re-build of 3.0.4 packages with our new GPG key.

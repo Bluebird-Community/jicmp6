@@ -1,3 +1,13 @@
+jicmp6 (3.0.6-1) stable; urgency=low
+
+  * Change build infrastructure to GitHub Actions.
+  * Create a release workflow based on git version tags
+  * Preparing the first release to [Cloudsmith](https://cloudsmith.io/~bluebird/repos/common/packages/)
+  * Resolve warning running autoupdate
+  * Bumped Debian compatibility from 6 to 7
+
+ -- Ronny Trommer <ronny@no42.org>  Mon, 3 Jun 2024 00:36:00 +0200
+
 jicmp6 (3.0.3-1) stable; urgency=low
 
   * Automatically deploy to Maven Central.
