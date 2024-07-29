@@ -65,3 +65,7 @@ package-lock.json
 /public/
 /tmp/
 /docs-src/antora.yml
+
+# Intellij IDEA
+.idea/
+
