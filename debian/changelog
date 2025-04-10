@@ -1,5 +1,9 @@
 jicmp6 (3.0.7-1) stable; urgency=low
 
+  * Update package maintainer info
+  
+ -- Ronny Trommer <ronny@no42.org>  Thu, 10 Apr 2025 13:27:00 +0200
+
 jicmp6 (3.0.6-1) stable; urgency=low
 
   * Change build infrastructure to GitHub Actions.
