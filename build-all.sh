@@ -57,10 +57,10 @@ generatePackage() {
 	fpm -f -s dir \
 		--name jicmp6 \
 		--description "Java interface to ICMP (ping)" \
-		--vendor "The OpenNMS Group, Inc." \
+		--vendor "BluebirdOps" \
 		--license "LGPLv3" \
-		--maintainer "opennms@opennms.org" \
-		--url "https://github.com/OpenNMS/jicmp6" \
+		--maintainer "maintainer@bluebirdops.org" \
+		--url "https://github.com/bluebird-community/jicmp6" \
 		--version "${VERSION}" \
 		-t "${_type}" \
 		-C "./tmp/dist/${_type}" \
