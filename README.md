@@ -12,7 +12,7 @@ Requirements:
 * automake
 * autoconf
 * libtool
-* Java JDK 1.8+
+* Java JDK 17
 
 The repository has a _git_ submodule which contains _Macros_ required to compile from source code.
 

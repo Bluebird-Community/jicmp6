@@ -9,7 +9,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     container:
-      image: quay.io/bluebird/java-builder:0.1.0.jdk-8.b35
+      image: quay.io/bluebird/java-builder:ubuntu.0.3.0.jdk-17.b31
     steps:
       - uses: actions/checkout@v4
         with:
