@@ -1,3 +1,9 @@
+jicmp6 (4.0.0-1) stable; urgency=low
+
+* Build system updates, compiling with JDK 17.
+
+-- Ronny Trommer <ronny@no42.org>  Thu, 28 Jan 2026 00:23:00 +0100
+
 jicmp6 (3.0.7-1) stable; urgency=low
 
   * Update package maintainer info
